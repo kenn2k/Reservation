@@ -5,7 +5,6 @@ import logo from "@/public/assets/logo.svg";
 import { usePathname } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { FaGoogle } from "react-icons/fa";
-import { PropertiesType } from "@/types/types";
 
 interface INavigationProps {
   providers: {

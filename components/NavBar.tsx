@@ -1,18 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Navigation from "./navbar/Navigation";
-import Profile from "./navbar/Profile";
 import MobileProfile from "./navbar/MobileProfile";
 import Notification from "./navbar/Notification";
 import Burger from "./navbar/Burger";
 import UserMenu from "./navbar/UserMenu";
-import { getProviders, useSession } from "next-auth/react";
+import { getProviders, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isNotificationMenuOpen, setIsNotificationMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState({ id: null });
   const { data: session } = useSession();
   useEffect(() => {
@@ -22,7 +21,6 @@ const NavBar = () => {
     };
     setAuthProvider();
   }, []);
-  console.log(providers);
   return (
     <nav className="bg-[#4a4b60]  border-b border-[#e0b2fa]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -34,14 +32,51 @@ const NavBar = () => {
           {/* Messages */}
           {session && (
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+              {/* notification */}
               <Notification />
               <div className="relative ml-3">
+                {/* UserMenu */}
                 <UserMenu
                   onClick={() => {
-                    setIsNotificationMenuOpen((prev) => !prev);
+                    setIsMenuOpen((prev) => !prev);
                   }}
                 />
-                {isNotificationMenuOpen && <Profile />}
+                {isMenuOpen && (
+                  <div
+                    id="user-menu"
+                    className=" absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="user-menu-button"
+                  >
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      id="user-menu-item-0"
+                    >
+                      Your Profile
+                    </Link>
+                    <Link
+                      href="/properties/saved"
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      id="user-menu-item-2"
+                    >
+                      Saved Properties
+                    </Link>
+                    <button
+                      onClick={() => {
+                        setIsMenuOpen(false), signOut();
+                      }}
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      role="menuitem"
+                      id="user-menu-item-2"
+                      tabIndex={-1}
+                    >
+                      Sign Out
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           )}
