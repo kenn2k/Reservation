@@ -66,5 +66,5 @@ export type AddPropertyTypes = {
     email: string;
     phone: string;
   };
-  images: string[];
+  images: [];
 };

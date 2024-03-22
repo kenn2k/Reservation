@@ -10,6 +10,7 @@ import DetailAmenities from "@/components/details/DetailAmenities";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import ClientLoading from "@/components/UI/ClientLoading";
+import PropertyImages from "@/components/properties/PropertyImages";
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -66,6 +67,7 @@ const PropertyPage = () => {
               </div>
             </div>
           </section>
+          <PropertyImages images={property.images} />
         </>
       )}
     </>
