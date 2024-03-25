@@ -41,6 +41,7 @@ export type PropertiesType = {
 };
 
 export type AddPropertyTypes = {
+  _id: string;
   type: string;
   name: string;
   description: string;
@@ -66,5 +67,5 @@ export type AddPropertyTypes = {
     email: string;
     phone: string;
   };
-  images: [];
+  images: string[];
 };

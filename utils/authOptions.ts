@@ -1,6 +1,6 @@
 import connectDB from "@/config/database";
 import User from "@/models/User";
-import { AuthOptions } from "next-auth";
+import { AuthOptions, Profile } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: AuthOptions = {
