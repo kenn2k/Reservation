@@ -15,18 +15,19 @@ export const POST = async (request: Request) => {
     if (!sessionUser || !sessionUser.userId) {
       return new Response("User ID is required", { status: 401 });
     }
-
     const { userId } = sessionUser;
 
+    //` find user in database
     const user = await User.findOne({ _id: userId });
 
-    let isBookmarked = user.bookmarks.includes(propertyId);
+    //` check if property is bookmarked
+    let isBookMarker = user.bookmarks.includes(propertyId);
 
-    return new Response(JSON.stringify({ isBookmarked }), {
+    return new Response(JSON.stringify({ isBookMarker }), {
       status: 200,
     });
   } catch (error) {
-    console.log(error);
-    return new Response("something went wrong");
+    console.error(error);
+    return new Response("something went wrong", { status: 500 });
   }
 };
