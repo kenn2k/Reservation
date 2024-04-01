@@ -63,7 +63,7 @@ const PropertyPage = () => {
                     <div id="map"></div>
                   </div>
                 </main>
-                <DetailSideBar />
+                <DetailSideBar property={property} />
               </div>
             </div>
           </section>

@@ -21,16 +21,16 @@ const MobileProfile = ({ providers }: INavigationProps) => {
         <Link
           href="/"
           className={`${
-            pathname === "/" ? "bg-gray-700" : ""
-          } text-[#e0b2fa]  block rounded-md px-3 py-2 text-base font-medium`}
+            pathname === "/" ? "bg-blue-500" : ""
+          } text-white  block rounded-md px-3 py-2 text-base font-medium`}
         >
           Home
         </Link>
         <Link
           href="/properties"
           className={`${
-            pathname === "/properties" ? "bg-gray-700" : ""
-          } text-[#e0b2fa]  block rounded-md px-3 py-2 text-base font-medium`}
+            pathname === "/properties" ? "bg-blue-500" : ""
+          } text-white  block rounded-md px-3 py-2 text-base font-medium`}
         >
           Properties
         </Link>
@@ -38,8 +38,8 @@ const MobileProfile = ({ providers }: INavigationProps) => {
           <Link
             href="/properties/add"
             className={`${
-              pathname === "/properties/add" ? "bg-gray-700" : ""
-            } text-[#e0b2fa]  block rounded-md px-3 py-2 text-base font-medium`}
+              pathname === "/properties/add" ? "bg-blue-500" : ""
+            } text-white  block rounded-md px-3 py-2 text-base font-medium`}
           >
             Add Property
           </Link>
@@ -50,7 +50,7 @@ const MobileProfile = ({ providers }: INavigationProps) => {
             <button
               onClick={() => signIn(provider.id)}
               key={index}
-              className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 my-4"
+              className="flex items-center text-white bg-blue-500 hover:bg-blue-900 hover:text-white rounded-md px-3 py-2 my-4"
             >
               <FaGoogle className=" text-[#e0b2fa] mr-2" />
               <span>Login or Register</span>

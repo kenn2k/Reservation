@@ -22,7 +22,7 @@ const NavBar = () => {
     setAuthProvider();
   }, []);
   return (
-    <nav className="bg-[#4a4b60]  border-b border-[#e0b2fa]">
+    <nav className="bg-blue-700  border-b border-[#426CF7]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <Burger onClick={() => setIsMobileMenuOpen((prev) => !prev)} />

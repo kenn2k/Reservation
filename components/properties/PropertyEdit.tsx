@@ -16,21 +16,7 @@ const PropertyEdit = () => {
   const router = useRouter();
   const [selected, setSelected] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { fields, setFields } = useMyContext();
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      const { files } = event.target;
-
-      const updatedImages: any = [...fields.images];
-      for (const file of files) {
-        updatedImages.push(file);
-      }
-      setFields((prevFields) => ({
-        ...prevFields,
-        images: updatedImages,
-      }));
-    }
-  };
+  const { setFields } = useMyContext();
 
   useEffect(() => {
     setSelected(true);
