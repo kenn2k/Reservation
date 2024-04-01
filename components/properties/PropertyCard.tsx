@@ -9,8 +9,11 @@ import {
   FaMoneyBill,
   FaMapMarker,
 } from "react-icons/fa";
+interface IProperty {
+  property: PropertiesType;
+}
 
-const PropertyCard = ({ property }: { property: PropertiesType }) => {
+const PropertyCard = ({ property }: IProperty) => {
   const getRatePrice = () => {
     const { rates } = property;
     if (rates.monthly) {
@@ -30,7 +33,7 @@ const PropertyCard = ({ property }: { property: PropertiesType }) => {
         width={0}
         height={0}
         sizes="100vw"
-        style={{ width: "100%", height: "300px" }}
+        style={{ width: "100%", height: "225px" }}
         className="object-cover rounded-t-xl"
       />
       <div className="p-4">

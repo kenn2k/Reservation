@@ -1,6 +1,7 @@
 import { PropertiesType } from "@/types/types";
 import React from "react";
 import { FaBookmark, FaPaperPlane, FaShare } from "react-icons/fa";
+
 import Bookmarks from "./Bookmark";
 interface IProperty {
   property: PropertiesType;

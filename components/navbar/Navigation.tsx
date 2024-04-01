@@ -20,7 +20,7 @@ const Navigation = ({ providers }: INavigationProps) => {
         <Link className="flex flex-shrink-0 items-center" href="/">
           <Image className="h-10 w-auto" src={logo} alt="PropertyPulse" />
 
-          <span className="hidden md:block text-[#e0b2fa] text-2xl font-bold ml-2">
+          <span className="hidden md:block text-white text-2xl font-bold ml-2">
             PropertyPulse
           </span>
         </Link>
@@ -33,7 +33,7 @@ const Navigation = ({ providers }: INavigationProps) => {
               href="/"
               className={`${
                 pathname === "/" ? "bg-gray-700" : ""
-              } text-[#e0b2fa] hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+              } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
             >
               Home
             </Link>
@@ -41,7 +41,7 @@ const Navigation = ({ providers }: INavigationProps) => {
               href="/properties"
               className={`${
                 pathname === "/properties" ? "bg-gray-700" : ""
-              } text-[#e0b2fa] hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+              } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
             >
               Properties
             </Link>
@@ -50,7 +50,7 @@ const Navigation = ({ providers }: INavigationProps) => {
                 href="/properties/add"
                 className={`${
                   pathname === "/properties/add" ? "bg-gray-700" : ""
-                } text-[#e0b2fa] hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+                } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
               >
                 Add Property
               </Link>
@@ -66,7 +66,7 @@ const Navigation = ({ providers }: INavigationProps) => {
             {providers &&
               Object.values(providers).map((provider, index) => (
                 <button
-                  onClick={() => signIn(provider.id)}
+                  onClick={() => signIn(provider?.id)}
                   key={index}
                   className="flex items-center text-[#e0b2fa] bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
                 >
