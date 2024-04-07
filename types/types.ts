@@ -51,16 +51,16 @@ export type AddPropertyTypes = {
     state: string;
     zipcode: string;
   };
-  beds: string;
-  baths: string;
-  square_feet: string;
+  beds: number;
+  baths: number;
+  square_feet: number;
 
   //! type never
   amenities: string[];
   rates: {
-    weekly: string;
-    monthly: string;
-    nightly: string;
+    weekly: number;
+    monthly: number;
+    nightly: number;
   };
   seller_info: {
     name: string;
@@ -68,4 +68,13 @@ export type AddPropertyTypes = {
     phone: string;
   };
   images: string[];
+};
+
+export type MessageTypes = {
+  _id: string;
+  name: string;
+  email: string;
+  phone: string;
+  createdAt: number;
+  body: string;
 };

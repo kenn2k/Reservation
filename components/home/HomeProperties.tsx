@@ -1,5 +1,5 @@
 import React from "react";
-import properties from "@/app/api/properties.json";
+
 import PropertyCard from "../properties/PropertyCard";
 import Link from "next/link";
 import { PropertiesType } from "@/types/types";

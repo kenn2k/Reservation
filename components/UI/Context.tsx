@@ -9,15 +9,19 @@ const MyContext = createContext<
   | {
       fields: AddPropertyTypes;
       setFields: React.Dispatch<React.SetStateAction<AddPropertyTypes>>;
+      unreadCount: number;
+      setUnreadCount: React.Dispatch<React.SetStateAction<number>>;
     }
   | undefined
 >(undefined);
 
 export const MyContextProvider = ({ children }: IChildren) => {
   const [fields, setFields] = useState<AddPropertyTypes>(initialState);
-
+  const [unreadCount, setUnreadCount] = useState(0);
   return (
-    <MyContext.Provider value={{ fields, setFields }}>
+    <MyContext.Provider
+      value={{ fields, setFields, unreadCount, setUnreadCount }}
+    >
       {children}
     </MyContext.Provider>
   );

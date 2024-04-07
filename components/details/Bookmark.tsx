@@ -1,13 +1,13 @@
 "use client";
 import { PropertiesType } from "@/types/types";
-import { getSessionUser } from "@/utils/getSessionUser";
+
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 interface IProperty {
   property: PropertiesType;
 }
-const Bookmarks = ({ property }: IProperty) => {
+const Bookmark = ({ property }: IProperty) => {
   const { data: session } = useSession();
   const userId = session?.user?.id;
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -88,4 +88,4 @@ const Bookmarks = ({ property }: IProperty) => {
   );
 };
 
-export default Bookmarks;
+export default Bookmark;

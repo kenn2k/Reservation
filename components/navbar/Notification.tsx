@@ -1,7 +1,31 @@
+"use client";
+import { Session } from "next-auth";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useMyContext } from "../UI/Context";
 
-const Notification = () => {
+const Notification = ({ session }: { session: Session }) => {
+  const { unreadCount, setUnreadCount } = useMyContext();
+
+  useEffect(() => {
+    if (!session) return;
+
+    const fetchUnreadMessages = async () => {
+      try {
+        const res = await fetch("/api/messages/unread");
+
+        if (res.status === 200) {
+          const data = await res.json();
+          setUnreadCount(data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUnreadMessages();
+  }, [session]);
+
   return (
     <Link href="/messages" className="relative group">
       <button
@@ -25,9 +49,11 @@ const Notification = () => {
           />
         </svg>
       </button>
-      <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
-        2
-      </span>
+      {unreadCount > 0 && (
+        <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+          {unreadCount}
+        </span>
+      )}
     </Link>
   );
 };

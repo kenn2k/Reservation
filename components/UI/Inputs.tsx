@@ -1,4 +1,4 @@
-import { AddPropertyTypes } from "@/types/types";
+import { AddPropertyTypes, PropertiesType } from "@/types/types";
 
 export const checkboxData = [
   { id: "amenity_wifi", label: "Wifi" },
@@ -69,6 +69,7 @@ export const sellerInfoFields = [
 
 //! for useState
 export const initialState: AddPropertyTypes = {
+  _id: "1",
   type: "Apartment",
   name: "Test Property",
   description: "",
@@ -78,19 +79,20 @@ export const initialState: AddPropertyTypes = {
     state: "Test State",
     zipcode: "",
   },
-  beds: "3",
-  baths: "2",
-  square_feet: "1800",
+  beds: 3,
+  baths: 2,
+  square_feet: 1800,
   amenities: [],
   rates: {
-    weekly: "100",
-    monthly: "2000",
-    nightly: "",
+    weekly: 100,
+    monthly: 2000,
+    nightly: 50,
   },
   seller_info: {
     name: "",
     email: "test@test.com",
     phone: "",
   },
+
   images: [],
 };
