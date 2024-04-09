@@ -36,7 +36,10 @@ export const POST = async (request: Request) => {
     const amenities = formData.getAll("amenities");
     const images = formData
       .getAll("images")
-      .filter((image) => image.name !== "");
+      .filter(
+        (image: unknown): image is File =>
+          image instanceof File && image.name !== ""
+      ) as File[];
 
     console.log(amenities, images);
 
