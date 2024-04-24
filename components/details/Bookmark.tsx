@@ -7,9 +7,15 @@ import { FaBookmark } from "react-icons/fa";
 interface IProperty {
   property: PropertiesType;
 }
+type SessionType = {
+  user: {
+    id: string;
+  };
+};
 const Bookmark = ({ property }: IProperty) => {
   const { data: session } = useSession();
-  const userId = session?.user?.id;
+  const userId = session?.user && "id" in session.user ? session.user.id : "";
+
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [loading, setLoading] = useState(false);
 

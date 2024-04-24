@@ -43,7 +43,34 @@ export const POST = async (request: Request) => {
 
     console.log(amenities, images);
 
-    const propertyData = {
+    const propertyData: {
+      type: FormDataEntryValue | null;
+      name: FormDataEntryValue | null;
+      description: FormDataEntryValue | null;
+      location: {
+        street: FormDataEntryValue | null;
+        city: FormDataEntryValue | null;
+        state: FormDataEntryValue | null;
+        zipcode: FormDataEntryValue | null;
+      };
+      beds: FormDataEntryValue | null;
+      baths: FormDataEntryValue | null;
+      square_feet: FormDataEntryValue | null;
+      amenities: FormDataEntryValue[];
+      rates: {
+        weekly: FormDataEntryValue | null;
+        monthly: FormDataEntryValue | null;
+        nightly: FormDataEntryValue | null;
+      };
+      seller_info: {
+        name: FormDataEntryValue | null;
+        email: FormDataEntryValue | null;
+        phone: FormDataEntryValue | null;
+      };
+      //! type changes (string to Object)
+      owner: Object;
+      images: string[];
+    } = {
       type: formData.get("type"),
       name: formData.get("name"),
       description: formData.get("description"),
@@ -68,7 +95,9 @@ export const POST = async (request: Request) => {
         phone: formData.get("seller_info.phone"),
       },
       owner: userId,
+      images: [],
     };
+
     //` Access the uploaded files from the form data
     const imageUploadPromises = [];
 

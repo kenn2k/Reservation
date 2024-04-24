@@ -7,7 +7,7 @@ const Search = () => {
   const [propertyType, setPropertyType] = useState("All");
   const router = useRouter();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (location === "" && propertyType === "All") {

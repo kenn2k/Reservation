@@ -17,9 +17,6 @@ const SavedPropertyPage = () => {
           const data = await res.json();
           setProperties(data);
           //` Sort the properties by create date
-          properties.sort(
-            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-          );
         } else {
           console.error(`Failed to fetch saved properties: ${res.statusText}`);
         }
@@ -46,7 +43,7 @@ const SavedPropertyPage = () => {
           <p>No properties found</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {properties.map((property) => (
+            {properties.map((property: PropertiesType) => (
               <PropertyCard property={property} key={property._id} />
             ))}
           </div>

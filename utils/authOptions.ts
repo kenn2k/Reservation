@@ -19,10 +19,10 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     //? Invoked on successful sign in
-    async signIn({ profile }: { profile: any }) {
+    async signIn({ profile }: { profile?: any }) {
       //! 1. connect database
-
       await connectDB();
+
       //! 2. Check if user exists
       const userExists = await User.findOne({ email: profile.email });
 

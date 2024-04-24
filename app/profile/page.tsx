@@ -16,7 +16,7 @@ const ProfilePage = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const fetchUserProperties = async (userId: string) => {
+    const fetchUserProperties = async (userId: string | undefined) => {
       if (!userId) {
         return;
       }
@@ -32,8 +32,9 @@ const ProfilePage = () => {
         setLoading(false);
       }
     };
-    if (session?.user?.id) {
-      fetchUserProperties(session.user.id);
+    if (session?.user && "id" in session.user) {
+      const userId = session.user.id as string;
+      fetchUserProperties(userId);
     }
   }, [session]);
 
