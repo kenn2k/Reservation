@@ -16,7 +16,7 @@
 
 <div style="text-align: center;">
   <a href="https://github.com/user-attachments/assets/fd103543-db99-46ca-bb54-2c46b6a0aa7c" target="_blank">
-    <img src="https://github.com/user-attachments/assets/fd103543-db99-46ca-bb54-2c46b6a0aa7c" alt="Rent your home" style="width: 60%; height: 600px; max-width: 500px;">
+    <img src="https://github.com/user-attachments/assets/fd103543-db99-46ca-bb54-2c46b6a0aa7c" alt="Rent your home" style="width: 60%; height: 800px; max-width: 500px;">
   </a>
   <p>Anyone can offer their services and rent out their home.</p>
 </div>
