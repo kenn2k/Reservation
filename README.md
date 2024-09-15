@@ -22,7 +22,7 @@
 </div>
 
 <h4>env example</h4>
-```js
+```env
 NEXT_PUBLIC_DOMAIN = your value
 NEXT_PUBLIC_API_DOMAIN = your value
 MONGODB_URI = your value
